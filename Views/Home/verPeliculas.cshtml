@@ -1,0 +1,41 @@
+﻿@model List<webCinestarMVC.Models.Pelicula>
+@{
+    ViewBag.Title = ViewBag.idEstado == 1 ? "Cartelera" : "Próximos Estrenos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h1>@ViewBag.Title</h1>
+<br />
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No hay películas disponibles.</p>
+}
+else
+{
+    @foreach (var oPelicula in Model)
+    {
+        <div class="contenido-pelicula">
+            <div class="datos-pelicula">
+                <h2>@oPelicula.Titulo</h2>
+                <p>@oPelicula.Sinopsis</p>
+                <br />
+                <div class="boton-pelicula">
+                    <a href="@Url.Action("verPelicula", "Home", new { idPelicula = oPelicula.idPelicula })">
+                        <img src="~/content/img/varios/btn-mas-info.jpg" width="120" height="30" alt="Ver info" />
+                    </a>
+                </div>
+                @if (!string.IsNullOrWhiteSpace(oPelicula.Link))
+                {
+                    <div class="boton-pelicula">
+                        <a href="https://www.youtube.com/v/@oPelicula.Link" target="_blank" onclick="return hs.htmlExpand(this, { objectType: 'iframe' } )">
+                            <img src="~/content/img/varios/btn-trailer.jpg" width="120" height="30" alt="Ver trailer" />
+                        </a>
+                    </div>
+                }
+            </div>
+            <img src="~/content/img/pelicula/@(oPelicula.idPelicula).jpg" width="160" height="226" /><br /><br />
+        </div>
+    }
+}
