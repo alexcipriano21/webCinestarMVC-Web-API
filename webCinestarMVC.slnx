@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="../CinestarWebAPI/CinestarWebAPI.csproj" Id="835d4c15-a185-418b-b406-0fabe68a2a6c" />
-  <Project Path="../webCinestarConsumirAPI/webCinestarConsumirAPI.csproj" Id="cd981611-d6f9-40cd-b2df-572423432659" />
+  <Project Path="../../Desktop/Proyectos/CinestarWebAPI/CinestarWebAPI.csproj" />
+  <Project Path="../../Desktop/Proyectos/webCinestarConsumirAPI/webCinestarConsumirAPI.csproj" />
   <Project Path="webCinestarMVC.csproj" />
 </Solution>
