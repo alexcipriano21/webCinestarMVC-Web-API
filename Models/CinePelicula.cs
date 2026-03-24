@@ -5,10 +5,12 @@
         public string Titulo { get; set; }
         public string Horario { get; set; }
 
-        public CinePelicula(string titulo, string horario)
+        public CinePelicula() { }
+
+        public CinePelicula(string Titulo, string Horario)
         {
-            this.Titulo = titulo;
-            this.Horario = horario;
+            this.Titulo = Titulo;
+            this.Horario = Horario;
         }
 
         internal dynamic getList(string[][] mRegistros)

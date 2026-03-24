@@ -1,28 +1,28 @@
-﻿namespace webCinestarMVC.Controllers.dao
+﻿using webCinestarMVC.Models;
+
+namespace webCinestarMVC.Controllers.dao
 {
     public class daoPelicula
     {
         bd.clsBD clsBD;
-
         public daoPelicula(IConfiguration config)
         {
-            clsBD = new bd.clsBD("cnCinestar", config);
+            clsBD = new bd.clsBD(config, "cnCinestar");
         }
 
-        internal List<Models.Pelicula> getPeliculas(int idEstado)
+        internal List<Pelicula> getVerPeliculas(int id)
         {
-            clsBD.Sentencia("sp_getPeliculas " + idEstado);
-            return new Models.Pelicula().getList(clsBD.getRegistro());
+            clsBD.Sentencia("sp_getPeliculas " + id);
+            return new Pelicula().getList(clsBD.getRegistros());
         }
 
-        internal Models.Pelicula getPelicula(int idPelicula)
+        internal Pelicula getVerPelicula(int idPelicula)
         {
             clsBD.Sentencia("sp_getPelicula " + idPelicula);
             var registros = clsBD.getRegistro();
-            Models.Pelicula pelicula = new Models.Pelicula();
             if (registros != null && registros.Length > 0)
-                pelicula.setDetalle(registros[0]);
-            return pelicula;
+                return new Pelicula(registros);
+            return new Pelicula();
         }
     }
 }

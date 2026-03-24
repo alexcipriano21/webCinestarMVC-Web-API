@@ -12,14 +12,14 @@
 		<body>
 			<header>
 				<nav class="nav-sec">
-					@Html.ActionLink("Inicio", "Inicio", "Home")&nbsp;&nbsp;l&nbsp;&nbsp;
+					@Html.ActionLink("Index", "Index", "Home")&nbsp;&nbsp;l&nbsp;&nbsp;
 					<a href="http://www.cinestar.com.pe/quienes_somos">Quiénes somos</a>&nbsp;&nbsp;l&nbsp;&nbsp;
 					<a href="http://www.cinestar.com.pe/trabaja_con_nosotros">Trabaja con nosotros</a>&nbsp;&nbsp;l&nbsp;&nbsp;
 					<a href="https://www.efact.pe/consult.html" target="_blank">Consulta tu comprobante de pago </a>&nbsp;&nbsp;l&nbsp;&nbsp;
 					<a href="http://www.cinestar.com.pe/contactenos/#contenido_titulo" class="anchorLink">Contáctenos</a>
 				</nav>
 				<div class="area-logo">
-					<a href='@Url.Action("Inicio", "Home")'><img src="~/content/img/varios/logo-cinestar.png"></a>
+					<a href='@Url.Action("Index", "Home")'><img src="~/content/img/varios/logo-cinestar.png"></a>
 				</div>
 				<nav class="menu">
 					<span class="img-social">
@@ -28,8 +28,8 @@
 					</span>
 					<span class="social">Síguenos en: </span>
 					<ul class="menu-principal">
-						<li class="menu-item">@Html.ActionLink("Cartelera", "verPeliculas", "Home", new { id = 1 })</li>
-						<li class="menu-item">@Html.ActionLink("Proximos Estrenos", "verPeliculas", "Home", new { id = 2 })</li>
+						<li class="menu-item">@Html.ActionLink("Cartelera", "verPeliculas", "Home", new { id = 1 }, null)</li>
+						<li class="menu-item">@Html.ActionLink("Proximos Estrenos", "verPeliculas", "Home", new { id = 2 }, null)</li>
 						<li class="menu-item"><a href="http://www.cinestar.com.pe/starcard">Star Card</a></li>
 						<li class="menu-item">@Html.ActionLink("Nuestros Cines", "verCines", "Home")</li>
 						<li class="menu-item"><a href="http://www.cinestar.com.pe/ventas_corporativas">Ventas Corporativas</a></li>
@@ -45,9 +45,9 @@
 			</header>
 	
 			<div class="contenido">
-				<div class="publicidad">
-					<a href="http://www.cinestar.com.pe/starcard/"><img src="~/content/img/varios/starcard.jpg" /></a>
-					<a href="http://www.cinestar.com.pe/cinefilo_star/"><img src="~/content/img/varios/cinefilo-star.jpg" /></a>
+				<div class="banners-promocionales">
+					<a href="http://www.cinestar.com.pe/starcard/"><img src="/content/img/varios/starcard.jpg" /></a>
+					<a href="http://www.cinestar.com.pe/cinefilo_star/"><img src="/content/img/varios/cinefilo-star.jpg" /></a>
 				</div>
 				<div class="contenido-interno" id="contenido-interno">
 					<div>

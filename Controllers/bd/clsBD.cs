@@ -9,16 +9,16 @@ namespace webCinestarMVC.Controllers.bd
         SqlCommand cmd = null;
         SqlDataAdapter da = null;
 
-        public clsBD(string BD, IConfiguration config)
+        public clsBD(IConfiguration config, string BD)
         {
             cn = new SqlConnection(config.GetConnectionString(BD));
             cmd = new SqlCommand("", cn);
             da = new SqlDataAdapter(cmd);
         }
 
-        internal void Sentencia(string v)
+        internal void Sentencia(string SQL)
         {
-            cmd.CommandText = v;
+            cmd.CommandText = SQL;
             cmd.Parameters.Clear();
         }
 
@@ -29,7 +29,7 @@ namespace webCinestarMVC.Controllers.bd
             return dt;
         }
 
-        internal object getRegistros()
+        internal string[] getRegistro()
         {
             DataTable dt = getDataTable();
             if (dt.Rows.Count == 0) return null;
@@ -37,7 +37,7 @@ namespace webCinestarMVC.Controllers.bd
             return System.Array.ConvertAll(dt.Rows[0].ItemArray, x => x.ToString().Trim());
         }
 
-        internal string[][] getRegistro()
+        internal string[][] getRegistros()
         {
             DataTable dt = getDataTable();
             if (dt.Rows.Count == 0) return null;

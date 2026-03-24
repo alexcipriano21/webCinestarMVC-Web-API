@@ -9,7 +9,7 @@
 @foreach (var oCine in Model)
 {
     <div class="contenido-cine">
-        <img src="~/content/img/cine/@(oCine.idCine).1.jpg" width="227" height="170" />
+        <img src="~/content/img/cine/@oCine.idCine.1.jpg" width="227" height="170" />
         <div class="datos-cine">
             <h4>@oCine.RazonSocial</h4><br />
             <span>@oCine.Direccion - @oCine.Detalle<br /><br />Teléfono: @oCine.Telefonos</span>

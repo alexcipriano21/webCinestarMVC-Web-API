@@ -1,38 +1,39 @@
-﻿namespace webCinestarMVC.Controllers.dao
+﻿using webCinestarMVC.Models;
+
+namespace webCinestarMVC.Controllers.dao
 {
     public class daoCine
     {
         bd.clsBD clsBD;
-
         public daoCine(IConfiguration config)
         {
-            clsBD = new bd.clsBD("cnCinestar", config);
+            clsBD = new bd.clsBD(config, "cnCinestar");
         }
 
-        internal List<Models.Cine> getVerCines()
+        internal List<Cine> getVerCines()
         {
             clsBD.Sentencia("sp_getCines");
-            return new Models.Cine().getList(clsBD.getRegistro());
+            return new Cine().getList(clsBD.getRegistros());
         }
 
-        internal Models.Cine getCine(int idCine)
+        internal Cine getCine(int idCine)
         {
             clsBD.Sentencia("sp_getCine " + idCine);
-            Models.Cine cine = new Models.Cine();
-            cine.setRegistro(clsBD.getRegistro()?[0]);
+            Cine cine = new Cine();
+            cine.setRegistro(clsBD.getRegistro());
             return cine;
         }
 
         internal dynamic getCineTarifas(int idCine)
         {
             clsBD.Sentencia("sp_getCineTarifas " + idCine);
-            return new Models.CineTarifa("", "").getList(clsBD.getRegistro());
+            return new CineTarifa().getList(clsBD.getRegistros());
         }
 
         internal dynamic getCinePeliculas(int idCine)
         {
             clsBD.Sentencia("sp_getCinePeliculas " + idCine);
-            return new Models.CinePelicula("", "").getList(clsBD.getRegistro());
+            return new CinePelicula().getList(clsBD.getRegistros());
         }
     }
 }

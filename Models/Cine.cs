@@ -9,6 +9,7 @@
         public string Direccion { get; set; }
         public string Telefonos { get; set; }
         public bool Eliminado { get; set; }
+
         public bool Valido { get; set; }
         public string Detalle { get; set; }
 
@@ -30,7 +31,8 @@
             idDistrito = int.Parse(aRegistro[3]);
             Direccion = aRegistro[4];
             Telefonos = aRegistro[5];
-            Detalle = aRegistro[6];
+            Eliminado = false;
+            Detalle = aRegistro.Length > 6 ? aRegistro[6] : "";
         }
 
         internal List<Cine> getList(string[][] mRegistros)

@@ -52,14 +52,14 @@ namespace webCinestarMVC.Controllers
 
         public ActionResult verPeliculas(int id)
         {
-            var lstPeliculas = daoPelicula.getPeliculas(id);
+            var lstPeliculas = daoPelicula.getVerPeliculas(id);
             ViewBag.idEstado = id;
             return View(lstPeliculas);
         }
 
         public ActionResult verPelicula(int idPelicula)
         {
-            var pelicula = daoPelicula.getPelicula(idPelicula);
+            var pelicula = daoPelicula.getVerPelicula(idPelicula);
             return View(pelicula);
         }
     }

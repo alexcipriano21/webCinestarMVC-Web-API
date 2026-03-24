@@ -1,64 +1,42 @@
 ﻿@model webCinestarMVC.Models.Pelicula
 @{
-    ViewBag.Title = Model?.Titulo ?? "Película";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    string estado = Model?.idEstado == 1 ? "Cartelera" : "Próximos Estrenos";
+	webCinestarMVC.Models.Pelicula Pelicula = Model;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<h1>@estado</h1>
-<br />
-
-@if (Model == null || Model.idPelicula == 0)
-{
-    <p>Película no encontrada.</p>
-}
-else
-{
-    <div class="contenido-pelicula">
-        <div class="datos-pelicula">
-            <h2>@Model.Titulo</h2>
-            <p>@Model.Sinopsis</p>
-            <br />
-            <div class="tabla">
-                <div class="fila">
-                    <div class="celda-titulo">Título Original :</div>
-                    <div class="celda">@Model.Titulo</div>
-                </div>
-                <div class="fila impar">
-                    <div class="celda-titulo">Estreno :</div>
-                    <div class="celda">@Model.FechaEstreno</div>
-                </div>
-                <div class="fila">
-                    <div class="celda-titulo">Género :</div>
-                    <div class="celda">@Model.GenerosDetalle</div>
-                </div>
-                <div class="fila impar">
-                    <div class="celda-titulo">Director :</div>
-                    <div class="celda">@Model.Director</div>
-                </div>
-                @if (!string.IsNullOrWhiteSpace(Model.Duracion))
-                {
-                    <div class="fila">
-                        <div class="celda-titulo">Duración :</div>
-                        <div class="celda">@Model.Duracion min.</div>
-                    </div>
-                }
-                @if (!string.IsNullOrWhiteSpace(Model.Reparto))
-                {
-                    <div class="fila impar">
-                        <div class="celda-titulo">Reparto :</div>
-                        <div class="celda">@Model.Reparto</div>
-                    </div>
-                }
-            </div>
-        </div>
-        <img src="~/content/img/pelicula/@(Model.idPelicula).jpg" width="160" height="226"><br /><br />
-        </div>
-        @if (!string.IsNullOrWhiteSpace(Model.Link))
-        {
-            <div class="pelicula-video">
-                <embed src="https://www.youtube.com/v/@Model.Link" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="580" height="400">
-            </div>
-        }
-    }
+<br>
+<h1>Cartelera</h1>
+<br>
+<div class="contenido-pelicula">
+	<div class="datos-pelicula">
+		<h2>@Pelicula.Titulo</h2>
+		<p>@Pelicula.Sinopsis</p>
+		<br />
+		<div class="tabla">
+			<div class="fila">
+				<div class="celda-titulo">Título Original :</div>
+				<div class="celda">@Pelicula.Titulo</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Estreno :</div>
+				<div class="celda">@Pelicula.FechaEstreno</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Género :</div>
+				<div class="celda">@Pelicula.Generos</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Director :</div>
+				<div class="celda">@Pelicula.Director</div>
+			</div>
+			<div class="fila">
+				<div class="celda-titulo">Reparto :</div>
+				<div class="celda">@Pelicula.Reparto</div>
+			</div>
+		</div>
+	</div>
+	<img src="/content/img/pelicula/@(Pelicula.idPelicula).jpg" width="160" height="226"><br /><br />
+</div>
+<div class="pelicula-video">
+	<embed src="https://www.youtube.com/v/@Pelicula.Link" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="580" height="400">
+</div>
