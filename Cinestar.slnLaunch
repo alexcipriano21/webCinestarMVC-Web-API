@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Consumiendo API",
+    "Projects": [
+      {
+        "Path": "webCinestarConsumirAPI\\webCinestarConsumirAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "CinestarWebAPI\\CinestarWebAPI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
