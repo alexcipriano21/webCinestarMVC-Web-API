@@ -1,0 +1,22 @@
+@model List<webCinestarMVC.Models.Cine>
+@{
+    ViewBag.Title = "verCines";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h1>Nuestros Cines</h1>
+<br />
+@foreach (var oCine in Model)
+{
+    <div class="contenido-cine">
+        <img src="~/content/img/cine/@oCine.idCine.1.jpg" width="227" height="170" />
+        <div class="datos-cine">
+            <h4>@oCine.RazonSocial</h4><br />
+            <span>@oCine.Direccion - @oCine.Detalle<br /><br />Teléfono: @oCine.Telefonos</span>
+        </div>
+        <br />
+        <a href='@Url.Action("verCine", "Home", new { id = @oCine.idCine })'>
+            <img src="~/content/img/varios/ico-info2.png" width="150" height="40" />
+        </a>
+    </div>
+}

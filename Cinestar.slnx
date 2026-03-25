@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CinestarWebAPI/CinestarWebAPI.csproj" />
+  <Project Path="webCinestarConsumirAPI/webCinestarConsumirAPI.csproj" />
+  <Project Path="webCinestarMVC/webCinestarMVC.csproj" />
+</Solution>
